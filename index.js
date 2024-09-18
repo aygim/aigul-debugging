@@ -1,7 +1,8 @@
 const guessInput = document.getElementById('guess');
 const submitButton = document.getElementById('submit');
 const resetButton = document.getElementById('reset');
-const messages = document.getElementsByClassName('message');
+// I fixed the bug: const messages = document.getElementsByClassName('message');
+const messages = document.querySelectorAll('.message');
 const tooHighMessage = document.getElementById('too-high');
 const tooLowMessage = document.getElementById('too-low');
 const maxGuessesMessage = document.getElementById('max-guesses');
@@ -24,7 +25,10 @@ function getRandomNumber(min, max) {
 
 function checkGuess() {
   // Get value from guess input element
-  const guess = parseInt(guessInput.value, 10);
+
+  // I fixed the bug:
+  // const guess = parseInt(guessInput.value, 10);
+  const guess = parseInt(guessInput.value);
   attempts = attempts + 1;
 
   hideAllMessages();
@@ -43,7 +47,9 @@ function checkGuess() {
     if (guess < targetNumber) {
       tooLowMessage.style.display = '';
     } else {
-      tooLowMessage.style.display = '';
+    // I fixed the bug:
+    // tooLowMessage.style.display = '';
+    tooHighMessage.style.display = '';
     }
 
     const remainingAttempts = maxNumberOfAttempts - attempts;
@@ -51,8 +57,9 @@ function checkGuess() {
     numberOfGuessesMessage.style.display = '';
     numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
   }
-
-  if (attempts ==== maxNumberOfAttempts) {
+// I fixed the bug:
+  // if (attempts ==== maxNumberOfAttempts) {
+  if (attempts === maxNumberOfAttempts) {
     submitButton.disabled = true;
     guessInput.disabled = true;
   }
@@ -63,21 +70,30 @@ function checkGuess() {
 }
 
 function hideAllMessages() {
-  for (let elementIndex = 0; elementIndex <= messages.length; elementIndex++) {
+// I fixed the bug:  
+  // for (let elementIndex = 0; elementIndex <= messages.length; elementIndex++) {
+  for (let elementIndex = 0; elementIndex < messages.length; elementIndex++) {
     messages[elementIndex].style.display = 'none';
   }
 }
-
-funtion setup() {
+// I fixed the bug: 
+// funtion setup() {
+function setup() { 
   // Get random number
   targetNumber = getRandomNumber(1, 100);
   console.log(`target number: ${targetNumber}`);
 
   // Reset number of attempts
-  maxNumberOfAttempts = 0;
 
+  // I fixed the bug: 
+
+// maxNumberOfAttempts = 0;
+attempts = 0;
   // Enable the input and submit button
-  submitButton.disabeld = false;
+
+  /// I fixed the bug: 
+  // submitButton.disabeld = false;
+  submitButton.disabled = false;
   guessInput.disabled = false;
 
   hideAllMessages();
