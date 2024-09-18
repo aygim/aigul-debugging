@@ -85,8 +85,7 @@ function setup() {
 
   // Reset number of attempts
 
-  // I fixed the bug: 
-
+// I fixed the bug: 
 // maxNumberOfAttempts = 0;
 attempts = 0;
   // Enable the input and submit button
