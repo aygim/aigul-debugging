@@ -53,7 +53,6 @@ function checkGuess() {
     }
 
     const remainingAttempts = maxNumberOfAttempts - attempts;
-
     numberOfGuessesMessage.style.display = '';
     numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
   }
@@ -90,8 +89,8 @@ function setup() {
 attempts = 0;
   // Enable the input and submit button
 
-  /// I fixed the bug: 
-  // submitButton.disabeld = false;
+/// I fixed the bug: 
+// submitButton.disabeld = false;
   submitButton.disabled = false;
   guessInput.disabled = false;
 
