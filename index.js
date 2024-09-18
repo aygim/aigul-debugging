@@ -76,7 +76,7 @@ function hideAllMessages() {
     messages[elementIndex].style.display = 'none';
   }
 }
-// I fixed the bug: 
+// I fixed the bug
 // funtion setup() {
 function setup() { 
   // Get random number
